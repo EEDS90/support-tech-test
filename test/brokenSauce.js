@@ -25,14 +25,20 @@ describe('Broken Sauce', function () {
 
         await driver.get("https://www.google.com");
 
-        let search = await driver.findElement(By.name("Search"));
+        let search = await driver.findElement(By.name("q"));
         await search.sendKeys("Sauce Labs");
         
         let button = await driver.findElement(By.name("btnK"))
         await button.click()
 
         let page = await driver.findElement(By.partialLinkText("sauce"));
+        await page.click()
+      
+        // let resources = await driver.findElement(By.href("/training-support"));
+        // await resources.click()
+      
 
+      
         await driver.quit();
     });
 });
